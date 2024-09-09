@@ -34,3 +34,11 @@ logOutBtn.addEventListener("click", () =>{
     loggedIn.classList.add("hide")
     welcome.classList.remove("hide")
 })
+
+//go back to main page
+backBtn.addEventListener("click", () => {
+    error.classList.add("hide")
+    welcome.classList.remove("hide")
+    usernameInp.value = "";
+    passwordInp.value = "";
+})
