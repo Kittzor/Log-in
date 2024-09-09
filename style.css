@@ -1,6 +1,6 @@
-/* .hide{
-    visibility: hidden;
-} */
+.hide{
+    display: none;
+}
 body{
     display: flex;
     flex-direction: column;
