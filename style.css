@@ -1,11 +1,12 @@
-.hide{
+.hide {
     display: none;
 }
-body{
-    background-color:darkcyan;
+
+body {
+    background-color: darkcyan;
     display: flex;
     flex-direction: column;
     place-items: center;
-    
-    
+    text-align: center;
+
 }
