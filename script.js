@@ -13,6 +13,13 @@ const error = document.querySelector(".error");
 const username = "test";
 const password = "1234";
 
+//Check if user is already logged in
+const checkUser = localStorage.getItem("username");
+//console.log("checkuser", checkUser)
+if (checkUser) {
+  welcome.classList.add("hide");
+  loggedIn.classList.remove("hide");
+}
 //log in function
 logInBtn.addEventListener("click", () => {
   if (usernameInp.value === username && passwordInp.value === password) {
