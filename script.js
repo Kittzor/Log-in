@@ -20,10 +20,10 @@ if (checkUser) {
   welcomePage.classList.add("hide"); //Adds hide to the welcome element and hides the welcome page
   loggedInPage.classList.remove("hide"); //Removes the hide and shows the loggedIn page
 }
-//log in function
+//when the logInBtn is clicked, check if username and password are correct,
+//if so, hide the welcomePage and show the loggedInPage, otherwise show the errorPage
 logInBtn.addEventListener("click", () => {
   if (usernameInp.value === username && passwordInp.value === password) {
-    //Add and remove class hide to the elements.
     welcomePage.classList.add("hide");
     loggedInPage.classList.remove("hide");
     localStorage.setItem("username", username);
@@ -32,6 +32,7 @@ logInBtn.addEventListener("click", () => {
     welcomePage.classList.add("hide");
     errorPage.classList.remove("hide");
   }
+  //clears the input fields
   usernameInp.value = "";
   passwordInp.value = "";
 });
