@@ -5,9 +5,9 @@ const logInBtn = document.querySelector(".logInBtn");
 const loggedInName = document.querySelector(".loggedInName");
 const logOutBtn = document.querySelector(".logOutBtn");
 const backBtn = document.querySelector(".backBtn");
-const welcome = document.querySelector(".Welcome");
-const loggedIn = document.querySelector(".loggedIn");
-const error = document.querySelector(".error");
+const welcomePage = document.querySelector(".Welcome");
+const loggedInPage = document.querySelector(".loggedIn");
+const errorPage = document.querySelector(".error");
 
 // hardcoded testvalues
 const username = "test";
@@ -17,35 +17,35 @@ const password = "1234";
 const checkUser = localStorage.getItem("username");
 //console.log("checkuser", checkUser)
 if (checkUser) {
-  welcome.classList.add("hide");
-  loggedIn.classList.remove("hide");
+  welcomePage.classList.add("hide"); //Adds hide to the welcome element and hides the welcome page
+  loggedInPage.classList.remove("hide"); //Removes the hide and shows the loggedIn page
 }
-//log in function
+//when the logInBtn is clicked, check if username and password are correct,
+//if so, hide the welcomePage and show the loggedInPage, otherwise show the errorPage
 logInBtn.addEventListener("click", () => {
   if (usernameInp.value === username && passwordInp.value === password) {
-    //Add and remove class hide to the elements.
-    welcome.classList.add("hide");
-    loggedIn.classList.remove("hide");
+    welcomePage.classList.add("hide");
+    loggedInPage.classList.remove("hide");
     localStorage.setItem("username", username);
-    usernameInp.value = "";
-    passwordInp.value = "";
+    loggedInName.innerHTML = username; //Types out the username
   } else {
-    welcome.classList.add("hide");
-    error.classList.remove("hide");
+    welcomePage.classList.add("hide");
+    errorPage.classList.remove("hide");
   }
-});
-
-//log out function
-logOutBtn.addEventListener("click", () => {
-  localStorage.clear();
-  loggedIn.classList.add("hide");
-  welcome.classList.remove("hide");
-});
-
-//go back to main page
-backBtn.addEventListener("click", () => {
-  error.classList.add("hide");
-  welcome.classList.remove("hide");
+  //clears the input fields
   usernameInp.value = "";
   passwordInp.value = "";
+});
+
+//when the logOutBtn is clicked, clear the localstorage and show the welcomePage
+logOutBtn.addEventListener("click", () => {
+  localStorage.clear();
+  loggedInPage.classList.add("hide");
+  welcomePage.classList.remove("hide");
+});
+
+//when the backBtn is clicked show the welcomePage
+backBtn.addEventListener("click", () => {
+  errorPage.classList.add("hide");
+  welcomePage.classList.remove("hide");
 });
